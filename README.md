@@ -5,7 +5,9 @@ Get a PHP object that has every start and end of each week of a specific month
 ```
 $month = 2; //February
 
-$obj = $this->getDateDayWeek($month);
+$year = 2018;
+
+$obj = $this->getDateDayWeek($month, $year);
 
 dd($obj->start)
 ```
