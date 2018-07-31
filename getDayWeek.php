@@ -1,13 +1,10 @@
 <?php
 
-        public function getDateDayWeek ($month){
+    public function getDateDayWeek ($month, $year){
 
         $j=1;
         $k=1;
 
-        $month = 2;
-
-        $year = Carbon::now()->year;
         $date = Carbon::createFromDate($year,$month, 1);
 
         $start = [];
