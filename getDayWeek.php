@@ -11,13 +11,13 @@
         $end = [];
 
         if(Carbon::createFromDate($year, $month, 1)->isSunday()){
-            $start[$j] = Carbon::createFromDate($year, $month, 1)->firstOfMonth()->day;
+            $start[$j] = Carbon::createFromDate($year, $month, 1)->firstOfMonth()->toDateString();
             $j++;
-            $end[$k] = Carbon::createFromDate($year, $month, 1)->firstOfMonth()->day;
+            $end[$k] = Carbon::createFromDate($year, $month, 1)->firstOfMonth()->toDateString();
             $k++;
         }
         else{
-            $start[$j] = Carbon::createFromDate($year, $month, 1)->firstOfMonth()->day;
+            $start[$j] = Carbon::createFromDate($year, $month, 1)->firstOfMonth()->toDateString();
             $j++;
         }
 
@@ -27,17 +27,17 @@
             $isSunday = Carbon::createFromDate($year, $month, $i)->isSunday();
 
             if( $isMonday == true ) {
-                $start[$j] = $i;
+                $start[$j] = Carbon::createFromDate($year, $month, $i)->toDateString();
                 $j++;
             }
             elseif( $isSunday == true && $i != 1){
-                $end[$k]= $i;
+                $end[$k]= Carbon::createFromDate($year, $month, $i)->toDateString();
                 $k++;
             }
 
         }
 
-        $end[$k] = Carbon::createFromDate($year, $month, 1)->endOfMonth()->day;
+        $end[$k] = Carbon::createFromDate($year, $month, 1)->endOfMonth()->toDateString();
 
         $object = (object) ['start' => $start,
                             'end' => $end];
@@ -45,5 +45,4 @@
         return $object;
 
     }
-
 ?>
